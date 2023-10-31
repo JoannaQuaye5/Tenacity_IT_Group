@@ -1,5 +1,5 @@
 resource "aws_vpc" "Holy-vpc" {
-  cidr_block       = "10.0.0.0/16"
+  cidr_block       = var.vpc_cidr
   instance_tenancy = "default"
 
   tags = {
@@ -10,7 +10,7 @@ resource "aws_vpc" "Holy-vpc" {
 #public subnet1
 resource "aws_subnet" "Prod-public-subnet1" {
   vpc_id     = aws_vpc.Holy-vpc.id
-  cidr_block = "10.0.1.0/24"
+  cidr_block = var.public_subnet1_cidr
 
   tags = {
     Name = "Prod-public-subnet1"
@@ -20,7 +20,7 @@ resource "aws_subnet" "Prod-public-subnet1" {
 #public subnet2
 resource "aws_subnet" "Prod-public-subnet2" {
   vpc_id     = aws_vpc.Holy-vpc.id
-  cidr_block = "10.0.2.0/24"
+  cidr_block = var.public_subnet2_cidr
 
   tags = {
     Name = "Prod-public-subnet2"
@@ -30,7 +30,7 @@ resource "aws_subnet" "Prod-public-subnet2" {
 #private subnet1
 resource "aws_subnet" "Prod-private-subnet1" {
   vpc_id     = aws_vpc.Holy-vpc.id
-  cidr_block = "10.0.3.0/24"
+  cidr_block = var.private_subnet1_cidr
 
   tags = {
     Name = "Prod-private-subnet1"
@@ -40,7 +40,7 @@ resource "aws_subnet" "Prod-private-subnet1" {
 #private subnet2
 resource "aws_subnet" "Prod-private-subnet2" {
   vpc_id     = aws_vpc.Holy-vpc.id
-  cidr_block = "10.0.4.0/24"
+  cidr_block = var.private_subnet2_cidr
 
   tags = {
     Name = "Prod-private-subnet2"
