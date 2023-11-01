@@ -71,8 +71,20 @@ resource "aws_route_table_association" "Prod-public-route-table-association" {
   route_table_id = aws_route_table.Prod-public-route-table.id
 }
 
+#aws public route table association with public subnet 1
+resource "aws_route_table_association" "Prod-public-route-table-association1" {
+  subnet_id = aws_subnet.Prod-public-subnet1.id
+  route_table_id = aws_route_table.Prod-public-route-table.id
+  }
+
 #aws private route table association with private subnet 1
 resource "aws_route_table_association" "Prod-private-route-table-association" {
+  subnet_id = aws_subnet.Prod-private-subnet1.id
+  route_table_id = aws_route_table.Prod-private-route-table.id
+}
+
+#aws private route table association with private subnet 1
+resource "aws_route_table_association" "Prod-private-route-table-association1" {
   subnet_id = aws_subnet.Prod-private-subnet1.id
   route_table_id = aws_route_table.Prod-private-route-table.id
 }
@@ -112,6 +124,3 @@ route_table_id = aws_route_table.Prod-private-route-table.id
 gateway_id     = aws_nat_gateway.Prod-nat-gateway.id
 destination_cidr_block = "0.0.0.0/0"
 }
-
-
-
