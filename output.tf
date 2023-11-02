@@ -3,21 +3,24 @@ output "vpc_id"  {
 }
 
 output "vpc_cidr_block" {
-  value = "0.0.0.0/16"
+  value = aws_vpc.Holy-vpc.cidr_block
 }
 
-output "public_subnet1_cidr_block" {
-  value = "0.0.1.0/28"
+output "public_subnet1_cidr" {
+  value = aws_subnet.Prod-public-subnet1.cidr_block
 }
 
-output "public_subnet2_cidr_block" {
-  value = "0.0.2.0/28"
+output "private_subnet1_cidr" {
+  value = aws_subnet.Prod-private-subnet1.cidr_block
 }
 
-output "private_subnet1_cidr_block" {
-  value = "0.0.3.0/28"
+output "public_subnet_id" {
+  value = aws_subnet.Prod-public-subnet1.id
 }
 
-output "private_subnet2_cidr_block" {
-  value = "0.0.4.0/28"
+output "private_subnet_id" {
+  value = aws_subnet.Prod-private-subnet1.id
 }
+
+
+
