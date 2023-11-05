@@ -33,3 +33,16 @@ variable "private_subnet_2_cidr" {
  description = "cidr block for private subnet2" 
   default = "10.0.4.0/28"
   }
+
+ variable "tags" {
+  type        = map(string)
+  description = "A mapping of tags to assign to the resource"
+  default = {}
+ }
+
+ variable "tenancy" {
+ type        = string
+ description = "The tenancy of the instance (if the instance is running in a VPC)"
+ default     = null
+ }
+ 
