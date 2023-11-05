@@ -1,7 +1,7 @@
 variable "region" {
  type = string
  description = "aws region" 
-  default = "eu_west_2"
+  default = "eu-west-2"
 }
 
 variable "vpc_cidr" {
